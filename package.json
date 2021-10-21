@@ -1,7 +1,7 @@
 {
     "name": "@msamblanet/node-slf",
     "version": "0.1.0",
-    "private": true,
+    "private": false,
     "description": "Logging adapter for node.js",
     "homepage": "https://github.com/msamblanet/node-slf#readme",
     "bugs": {

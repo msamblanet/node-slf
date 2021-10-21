@@ -6,3 +6,7 @@ export * from './PinoLogAdapter.js';
 export * from './RoarrLogAdapter.js';
 export * from './TsLogAdapter.js';
 export * from './types.js';
+
+// ts-jest seems to have issues unless we have a default export
+const defaultExport = {};
+export default defaultExport;

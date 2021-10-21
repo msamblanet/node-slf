@@ -34,3 +34,7 @@ export interface ILogAdapter {
 
   toConsole(): IConsole;
 }
+
+// ts-jest seems to have issues unless we have a default export
+const defaultExport = {};
+export default defaultExport;

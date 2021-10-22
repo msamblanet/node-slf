@@ -3,8 +3,8 @@ import { IConsole, ILogAdapter } from './types.js';
 
 export class AsConsoleAdapter implements IConsole {
   protected readonly logger: ILogAdapter;
-  protected readonly counts: Record<string, number> = {};
-  protected readonly timers: Record<string, number> = {};
+  protected readonly counts: Map<string, number> = new Map();
+  protected readonly timers: Map<string, number> = new Map();
 
   constructor(logger: ILogAdapter) {
     this.logger = logger;
@@ -22,13 +22,14 @@ export class AsConsoleAdapter implements IConsole {
 
   clear(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
   count(label = 'default'): void {
-    this.counts[label] ??= 0;
-    this.counts[label]++;
-    this.log('%s: %d', label, this.counts[label]);
+    let value = this.counts.get(label) ?? 0;
+    value++;
+    this.counts.set(label, value);
+    this.log('%s: %d', label, value);
   }
 
   countReset(label = 'default'): void {
-    this.counts[label] = 0;
+    this.counts.delete(label);
   }
 
   debug(message?: any, ...optionalParameters: any[]): void {
@@ -60,18 +61,19 @@ export class AsConsoleAdapter implements IConsole {
 
   table(_tabularData: any, _properties?: readonly string[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
   time(label = 'default'): void {
-    this.timers[label] = Date.now();
+    this.timers.set(label, Date.now());
   }
 
   timeEnd(label = 'default'): void {
-    this.log('%s: %dms', label, Date.now() - this.timers[label]);
+    this.log('%s: %dms', label, Date.now() - (this.timers.get(label) ?? 0));
+    this.timers.delete(label);
   }
 
   timeLog(label = 'default', ...data: any[]): void {
-    this.log('%s: %dms', label, Date.now() - this.timers[label], ...data);
+    this.log('%s: %dms', label, Date.now() - (this.timers.get(label) ?? 0), ...data);
   }
 
-  trace(message?: any, ...optionalParameters: any[]): void {
+  trace(message: any, ...optionalParameters: any[]): void {
     this.logger.trace(message, ...optionalParameters);
   }
 

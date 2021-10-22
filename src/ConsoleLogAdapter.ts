@@ -1,12 +1,12 @@
 import { BaseLogAdapter } from './BaseLogAdapter.js';
-import { ILogAdapter, LogLevel } from './types.js';
+import type { IConsole, ILogAdapter, LogLevel } from './types.js';
 
 export class ConsoleLogAdapter extends BaseLogAdapter {
   protected readonly name: string;
   protected readonly logName: string;
-  protected readonly console: Console;
+  protected readonly console: IConsole;
 
-  public constructor(name = '', level: number | LogLevel = 'all', console: Console = global.console) {
+  public constructor(name = '', level: number | LogLevel = 'all', console: IConsole = global.console) {
     super(level);
     this.name = name;
     this.logName = this.name ? `[${this.name}]` : '';

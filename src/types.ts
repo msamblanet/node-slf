@@ -2,7 +2,7 @@ import type { Except } from 'type-fest';
 
 export type IConsole = Except<Console, 'Console'>;
 
-export type LogLevel = 'all' | 'silly' | 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal' | 'none';
+export type LogLevel = 'all' | 'silly' | 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal' | 'none' | 'silent';
 export type SprintfArgument = boolean | number | string | null;
 export interface ILogAdapter {
   silly(message: string, ...interpolationValues: SprintfArgument[]): void;

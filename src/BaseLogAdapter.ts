@@ -39,7 +39,8 @@ export abstract class BaseLogAdapter implements ILogAdapter {
     warn: 500,
     error: 600,
     fatal: 700,
-    none: 9999
+    silent: 9999,
+    none: 9999 // Allow none in one direction
   };
 
   static readonly LOG_LEVEL_NAMES: Record<number, LogLevel> = {
@@ -51,7 +52,7 @@ export abstract class BaseLogAdapter implements ILogAdapter {
     500: 'warn',
     600: 'error',
     700: 'fatal',
-    9999: 'none'
+    9999: 'silent'
   };
 
   protected readonly level: number;

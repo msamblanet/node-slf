@@ -1,6 +1,6 @@
 {
     "name": "@msamblanet/node-slf",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": false,
     "description": "Logging adapter for node.js",
     "homepage": "https://github.com/msamblanet/node-slf#readme",
@@ -87,10 +87,10 @@
         "coverageDirectory": "coverage",
         "coverageThreshold": {
             "global": {
-                "branches": 0,
-                "functions": 0,
-                "lines": 0,
-                "statements": 0
+                "branches": 100,
+                "functions": 100,
+                "lines": 100,
+                "statements": 100
             }
         },
         "globals": {
@@ -113,6 +113,7 @@
     "devDependencies": {
         "@msamblanet/node-project-template": "^0.6.1",
         "@types/debug": "^4.1.7",
+        "@types/extend": "^3.0.1",
         "type-fest": "^2.5.1"
     },
     "engines": {
@@ -123,5 +124,8 @@
         "pino": "^7.0.3",
         "roarr": "^7.0.7",
         "tslog": "^3.2.2"
+    },
+    "dependencies": {
+        "extend": "^3.0.2"
     }
 }

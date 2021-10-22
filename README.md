@@ -33,17 +33,17 @@ const log = new DebugLogAdapter("name", debug);
 // Example initializing with pino
 import pino from "pino";
 import { PinoLogAdapter } from "@msamblanet/node-slf";
-const log = new PinoLogAdapter(pino());
+const log = new PinoLogAdapter({ pino() });
 
 // Example initializing with roarr
-import { Roarr} from "roarr";
+import { Roarr } from "roarr";
 import { RoarrLogAdapter } from "@msamblanet/node-slf";
 const log = new RoarrLogAdapter(Roarr);
 
 // Example initializing with tslog
 import { Logger } from "tslog";
 import { TsLogAdapter } from "@msamblanet/node-slf";
-const log = new TsLogAdapter(new Logger());
+const log = new TsLogAdapter({ log: new Logger() });
 
 // Sample usage examples
 import { BaseLogAdapter } from "@msamblanet/node-slf";
@@ -59,10 +59,18 @@ log.fatal("...");
 // This child logger will have :bar appended to the name
 // Details of what this does vary by logger
 const childLog = log.getChild("bar");
+
+// Get a console-like object to use in another app
+// Note that this is mostly but not 100% functional - some less common methods noop
+const consoleLike = log.toConsole();
 ```
 ## API
 
+For now, see the source code
+
 ## Other Notes
+
+- The core focus of this library is adaptability for normal business applications.  It is not focused on performance although I've tried be reasonable.  Suggestions on performance improvements are welcome but usabilty is a larger concern for this library.
 
 ### @msamblanet/node-project-template
 

@@ -111,7 +111,7 @@
         "verbose": false
     },
     "devDependencies": {
-        "@msamblanet/node-project-template": "^0.6.1",
+        "@msamblanet/node-project-template": "^0.6.2",
         "@types/debug": "^4.1.7",
         "@types/extend": "^3.0.1",
         "type-fest": "^2.5.1"

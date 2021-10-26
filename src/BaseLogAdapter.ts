@@ -2,33 +2,13 @@ import AsConsoleAdapter from './AsConsoleAdapter.js';
 import { IConsole, ILogAdapter, LogLevel } from './types.js';
 
 export abstract class BaseLogAdapter implements ILogAdapter {
-  static get LOG_LEVEL_SILLY() {
-    return 100;
-  }
-
-  static get LOG_LEVEL_TRACE() {
-    return 200;
-  }
-
-  static get LOG_LEVEL_DEBUG() {
-    return 300;
-  }
-
-  static get LOG_LEVEL_INFO() {
-    return 400;
-  }
-
-  static get LOG_LEVEL_WARN() {
-    return 500;
-  }
-
-  static get LOG_LEVEL_ERROR() {
-    return 600;
-  }
-
-  static get LOG_LEVEL_FATAL() {
-    return 700;
-  }
+  public static readonly LOG_LEVEL_SILLY = 100;
+  public static readonly LOG_LEVEL_TRACE = 200;
+  public static readonly LOG_LEVEL_DEBUG = 300;
+  public static readonly LOG_LEVEL_INFO = 400;
+  public static readonly LOG_LEVEL_WARN = 500;
+  public static readonly LOG_LEVEL_ERROR = 600;
+  public static readonly LOG_LEVEL_FATAL = 700;
 
   static readonly LOG_LEVEL_VALUES: Record<LogLevel, number> = {
     all: 0,

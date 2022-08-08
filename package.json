@@ -125,7 +125,7 @@
     },
     "optionalDependencies": {
         "debug": "^4.3.2",
-        "pino": "^7.0.5",
+        "pino": "^8.4.0",
         "roarr": "^7.0.7",
         "tslog": "^3.2.2"
     },

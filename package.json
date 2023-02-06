@@ -121,7 +121,7 @@
         "@msamblanet/node-project-template": "^0.7.0",
         "@types/debug": "^4.1.7",
         "@types/extend": "^3.0.1",
-        "type-fest": "^2.5.1"
+        "type-fest": "^3.5.5"
     },
     "optionalDependencies": {
         "debug": "^4.3.2",
